@@ -43,7 +43,22 @@
   border: none;
 }
 .explore-menu-list-item .active {
+  border-radius: 50%;
   border: 4px solid tomato;
   padding: 2px;
 
+}
+.explore-menu-list-item img {
+  border-radius: 50%; /* Ensures images inside also have rounded borders */
+  width: 7.5vw;
+  min-width: 80px;
+  cursor: pointer;
+  transition: 0.2s;
+
+}
+.explore-menu hr {
+  margin: 10px 0px;
+  height: 10px;
+  background-color: e2e2e2;
+  border: none;
 }
