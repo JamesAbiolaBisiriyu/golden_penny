@@ -44,10 +44,10 @@ const Cart = () => {
       </div>
       <div className="cart-bottom">
         <div className="cart-total">
-          <h2>CART TOTALS</h2>
+          <h2>Cart Totals</h2>
           <div>
             <div className="cart-total-details">
-              <p>SUBTOTAL</p>
+              <p>Subtotal</p>
               <p>${getTotalCartAmount()}</p>
             </div>
             <hr />
@@ -57,7 +57,7 @@ const Cart = () => {
             </div>
             <hr />
             <div className="cart-total-details">
-              <b>TOTAL</b>
+              <b>Total</b>
               <b>
                 ${getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 2}
               </b>
