@@ -2,12 +2,24 @@
 import './Navbar.css'
 import { useContext, useState } from 'react';
 import { assets } from '../../assets/assets'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { StoreContext } from '../../context/StoreContext';
 
 const Navbar = ({setShowLogin}) => {
   const [menu, setMenu] = useState("menu");
-  const {getTotalCartAmount,token,setToken} = useContext(StoreContext)
+  const {getTotalCartAmount,token,setToken} = useContext(StoreContext);
+
+  const navigate = useNavigate();
+
+
+const logOut = ()=>{
+  localStorage.removeItem("token");
+  setToken(null);
+  navigate("/")
+
+}
+
 
   return (
     <div className='navbar'>
@@ -31,13 +43,17 @@ const Navbar = ({setShowLogin}) => {
             <ul className="navbar-profile-dropdown">
               <li><img src={assets.bag_icon} alt="" /><p>Orders</p></li>
               <hr />
-              <li><img src={assets.logout_icon} alt="" /><p>Log Out</p></li>
+              <li onClick={logOut}><img src={assets.logout_icon} alt="" /><p>Log Out</p></li>
             </ul>
         </div>}
       </div>
     </div>
   );
 }
+
+Navbar.propTypes = {
+  setShowLogin: PropTypes.func.isRequired, // Ensure setShowLogin is a required function
+};
 
 export default Navbar;
 
